@@ -1,22 +1,27 @@
 import React, {Component} from 'react'
+import CommentList from './CommentList'
 
 class Article extends Component {
 
     constructor() {
-        super()
+        super();
         this.state = {
-            isOpen: false
+            isOpen: false,
         }
     }
 
     render() {
-        const {article} = this.props
-        const {isOpen} = this.state
-        const body = isOpen ? <section>{article.text}</section> : null
+        const {article} = this.props;
+        const {isOpen} = this.state;
+        const body = isOpen ? <section>{article.text}</section> : null;
+
         return (
             <div>
                 <h3 onClick={this.handleClick}>{article.title}</h3>
                 {body}
+                <div>
+                    <CommentList comments={article.comments}/>
+                </div>
             </div>
         )
     }
