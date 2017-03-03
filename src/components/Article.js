@@ -14,14 +14,14 @@ class Article extends Component {
         const {article} = this.props;
         const {isOpen} = this.state;
         const body = isOpen ? <section>{article.text}</section> : null;
+        const commens = body ? <CommentList comments={article.comments}/> : null;
 
         return (
             <div>
                 <h3 onClick={this.handleClick}>{article.title}</h3>
                 {body}
-                <div>
-                    <CommentList comments={article.comments}/>
-                </div>
+                <br/>
+                {commens}
             </div>
         )
     }
