@@ -28,11 +28,10 @@ class CommentList extends Component {
 
         if (comments !== undefined) {
             const commentComponents = isOpened ? comments.map(comment => <li key={comment.id}><Comment comment={comment}/></li>) : null;
-            const linkText = this.state.isOpened ? 'hide comments' : 'show comments';
 
             return (
                 <div>
-                    <a href="#" onClick={this.showComments}>{linkText}</a>
+                    <a href="#" onClick={this.showComments}>{this.state.isOpened ? 'hide' : 'show'} comments</a>
                     <div>
                         <ul>
                             {commentComponents}
