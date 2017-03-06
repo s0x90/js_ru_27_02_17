@@ -15,14 +15,6 @@ class CommentList extends Component {
 
     showComments = (e) => {
         e.preventDefault();
-        if (this.state.linkText === 'show comments') {
-            this.setState({
-                linkText: 'hide comments'
-            })} else {
-                this.setState({
-                    linkText: 'show comments'
-                })
-            }
 
         this.setState({
             isOpened: !this.state.isOpened
@@ -36,7 +28,7 @@ class CommentList extends Component {
 
         if (comments !== undefined) {
             const commentComponents = isOpened ? comments.map(comment => <li key={comment.id}><Comment comment={comment}/></li>) : null;
-            const {linkText} = this.state;
+            const linkText = this.state.isOpened ? 'hide comments' : 'show comments';
 
             return (
                 <div>
